@@ -1,0 +1,54 @@
+[
+  {
+    "header": "YouTube",
+    "title": "Watched Pour-over basics",
+    "titleUrl": "https://www.youtube.com/watch?v=demoVideo01",
+    "subtitles": [{"name": "Coffee Daily", "url": "https://www.youtube.com/channel/UCdemo000000000000000001"}],
+    "time": "2026-09-10T08:00:00.123Z",
+    "products": ["YouTube"],
+    "activityControls": ["YouTube watch history"]
+  },
+  {
+    "header": "YouTube Music",
+    "title": "Watched A song",
+    "titleUrl": "https://music.youtube.com/watch?v=demoVideo06",
+    "subtitles": [{"name": "Some Artist - Topic"}],
+    "time": "2026-09-09T08:00:00.000Z",
+    "products": ["YouTube"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched a video that has been removed",
+    "time": "2026-09-09T07:00:00.000Z",
+    "products": ["YouTube"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Viewed a community post",
+    "titleUrl": "https://www.youtube.com/post/UgkxDemoPost",
+    "time": "2026-09-09T06:00:00.000Z",
+    "products": ["YouTube"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched Some ad",
+    "titleUrl": "https://www.youtube.com/watch?v=demoVideo07",
+    "time": "2026-09-09T05:00:00.000Z",
+    "details": [{"name": "From Google Ads"}],
+    "products": ["YouTube"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched Pour-over basics",
+    "titleUrl": "https://www.youtube.com/watch?v=demoVideo01",
+    "time": "2026-09-01T08:00:00.000Z",
+    "products": ["YouTube"]
+  },
+  {
+    "header": "YouTube",
+    "title": "Watched https://www.youtube.com/watch?v=demoVideo08",
+    "titleUrl": "https://www.youtube.com/watch?v=demoVideo08",
+    "time": "2026-09-08T08:00:00.000Z",
+    "products": ["YouTube"]
+  }
+]

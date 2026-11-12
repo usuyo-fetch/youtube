@@ -1,0 +1,9 @@
+# Fixture notes
+
+All files here are hand-written with invented content. NOT MEASURED: nobody involved had a real Google Takeout, so none of this has been compared with one.
+
+- `watch-history.json`: the "My Activity" shape (`header`, `title`, `titleUrl`, `subtitles[]`, `time`, `details[]`, `products`) as read by `_parse_json_activity` in [purarue/google_takeout_parser](https://github.com/purarue/google_takeout_parser) (MIT, Copyright (c) 2021 purarue), whose test data has `history/watch-history.json` under `YouTube and YouTube Music`. Entries for a removed video (no `titleUrl`), a community post, an ad (`details` "From Google Ads"), a repeat watch and a title that is a link are there to be skipped or merged.
+- `watch-history.html`: the HTML form of the same file, reduced to one link.
+- `watch-later.csv`, `liked-videos.csv`, `localised-playlist.csv`: per-playlist CSV, two columns, a video id and an RFC 3339 time (`Video ID,Playlist Video Creation Timestamp`). google_takeout_parser does not read these (it only reads the old `playlists/likes.json`), and WatchNow (ItsMaciek/WatchNow, no licence, so only a pointer, no code used) is the only source seen for the two-column layout, so the layout is not confirmed by a permissively licensed source. `liked-videos.csv` has a BOM, CRLF line ends and a row with an empty time; `localised-playlist.csv` has translated headers.
+- `playlists-meta.csv` (Playlist ID, create/update timestamps, title, visibility) and `subscriptions.csv` are other CSVs of a Takeout, there to be ignored by structure. Their columns are from the author's memory, not from a source.
+- The folder names the tests put the files in (`Takeout/YouTube and YouTube Music/playlists/`, `history/`, and Chinese names for the localised case) follow google_takeout_parser's test tree and the task text; the Chinese file names are invented.

@@ -1,0 +1,39 @@
+[package]
+name = "usuyo-fetch-youtube"
+description = "usuyo 的 YouTube 获取插件：读你的 Google Takeout，列出播放列表（稍后观看、喜欢的视频等）和观看历史，做个人备份和离线阅读"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+license = "MIT"
+publish = false
+
+# 独立仓库，不并进别的工作区。
+[workspace]
+
+[lib]
+name = "usuyo_fetch_youtube"
+path = "src/lib.rs"
+
+[[bin]]
+name = "usuyo-fetch-youtube"
+path = "src/main.rs"
+
+[dependencies]
+jiff = "0.2.42"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+thiserror = "2.0.21"
+url = "2.5.8"
+usuyo-plugin-kit = { version = "0.0.0", path = "../../usuyo/crates/usuyo-plugin-kit" }
+zip = { version = "9.5.1", default-features = false, features = ["deflate-flate2-zlib-rs"] }
+
+[dev-dependencies]
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros"] }
+tempfile = "3.27.0"
+usuyo-plugin = { path = "../../usuyo/crates/usuyo-plugin" }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

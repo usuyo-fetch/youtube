@@ -1,0 +1,62 @@
+# YouTube 获取插件：读你的 Google Takeout，列出播放列表（稍后观看、喜欢的视频等）和观看历史（视频链接）。
+# 方法列表和 README 的方法表、usuyo 仓库 docs/platforms/routes.md 第 12 节三行一一对应；takeout 做了，另两种没做。
+# 来源：file:…（播放列表）、youtube:playlists、youtube:playlist:<条目>、youtube:watch-history；
+# 宿主调 sources 时不带文件，所以固定的来源写在清单里，`sources` 带 USUYO_INPUT 时回这份文件里真有的。
+# 单条视频的内容由 ytdlp 插件按链接去取。交来的文件由宿主放进 ${INPUT}；插件不联网，也不写 ${INPUT}。
+protocol: 1
+id: usuyo-fetch/youtube
+kind: fetch
+name: YouTube
+description: 读你的 Google Takeout，列出播放列表和观看历史里的视频链接和加入的时间
+version: 0.1.0
+license: MIT
+maintainers: [Fldicoahkiin]
+upstream:
+  - name: google_takeout_parser（观看历史 JSON 的字段）
+    url: https://github.com/purarue/google_takeout_parser
+    license: MIT
+platforms: [youtube]
+methods:
+  - id: transcript
+    name: 字幕
+    built: false
+    access: private-api
+    login: none
+    account: none
+    risk:
+      text: 云服务器 IP 常被拦
+      source: {label: youtube-transcript-api, url: "https://github.com/jdepoix/youtube-transcript-api"}
+    capabilities:
+      fetch:
+        outputs: [subtitle, text]
+  - id: takeout
+    name: Google Takeout
+    access: official-export
+    login: none
+    account: none
+    capabilities:
+      list:
+        order: newest-first
+        files: ["takeout-*.zip", "*.zip"]
+        reads: Google Takeout 选「YouTube 和 YouTube Music」得到的 zip（播放列表的 CSV，观看历史选 JSON）
+        sources:
+          - {source: "youtube:playlists", title: 播放列表, action: favorite}
+          - {source: "youtube:watch-history", title: 观看历史, action: view}
+  - id: channel-feed
+    name: 频道订阅源
+    built: false
+    access: public-web
+    login: none
+    account: none
+    capabilities:
+      list:
+        order: newest-first
+permissions:
+  fs:
+    read: ["${INPUT}"]
+  network: {mode: none}
+  env: []
+  devices: []
+  gpu: false
+run:
+  command: ["${PLUGIN_DIR}/usuyo-fetch-youtube"]
