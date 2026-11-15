@@ -2,7 +2,7 @@
 # 方法列表和 README 的方法表、usuyo 仓库 docs/platforms/routes.md 第 12 节三行一一对应；takeout 做了，另两种没做。
 # 来源：file:…（播放列表）、youtube:playlists、youtube:playlist:<条目>、youtube:watch-history；
 # 宿主调 sources 时不带文件，所以固定的来源写在清单里，`sources` 带 USUYO_INPUT 时回这份文件里真有的。
-# 单条视频的内容由 ytdlp 插件按链接去取。交来的文件由宿主放进 ${INPUT}；插件不联网，也不写 ${INPUT}。
+# 本插件只列链接；视频文件：未实现。交来的文件由宿主放进 ${INPUT}；插件不联网，也不写 ${INPUT}。
 protocol: 1
 id: usuyo-fetch/youtube
 kind: fetch

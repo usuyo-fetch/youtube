@@ -8,7 +8,7 @@
 //!   purarue/google_takeout_parser（MIT）的 `_parse_json_activity`：`title`、`titleUrl`、`time`、`subtitles`、`details`。
 //!   HTML 形式的历史认得出来，回 `unsupported-input` 加请用户选 JSON 的提示。
 //!
-//! 视频链接和 `contentId` 照 usuyo-fetch/ytdlp：`https://www.youtube.com/watch?v=<11 位 id>`。
+//! 视频链接和 `contentId` 形式为`https://www.youtube.com/watch?v=<11 位 id>`。
 
 use std::cmp::Reverse;
 use std::collections::BTreeMap;
